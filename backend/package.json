@@ -1,0 +1,41 @@
+{
+  "name": "whatsapp-agent-platform",
+  "version": "1.0.0",
+  "description": "Agent WhatsApp Business multi-clients et multi-secteurs, propulsé par Claude",
+  "main": "dist/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/src/server.js",
+    "migrate": "tsx scripts/migrate.ts",
+    "seed": "tsx scripts/seed.ts",
+    "onboard": "tsx scripts/onboard-client.ts",
+    "ingest": "tsx scripts/ingest-knowledge.ts",
+    "worker": "tsx src/scheduler/worker.ts",
+    "test": "vitest run",
+    "test:unit": "vitest run --exclude \"**/node_modules/**\" --exclude \"**/*.integration.test.ts\"",
+    "test:e2e": "vitest run tests/e2e.integration.test.ts tests/rls.integration.test.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "bullmq": "^5.12.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "googleapis": "^140.0.1",
+    "helmet": "^7.1.0",
+    "ioredis": "^5.4.1",
+    "pg": "^8.12.0",
+    "pgvector": "^0.2.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.10",
+    "@types/node-cron": "^3.0.11",
+    "@types/pg": "^8.11.6",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.3"
+  }
+}
